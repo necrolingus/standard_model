@@ -1,4 +1,4 @@
-# Standard Model & Quantum Physics Portal
+# Standard Model and Quantum Physics Portal
 
 An interactive, responsive learning portal designed for students and enthusiasts of quantum mechanics and particle physics. It helps learners disambiguate physics terminology, inspect the elementary and composite components of the universe, and explore dual plain-English and rigorous physics descriptions.
 
