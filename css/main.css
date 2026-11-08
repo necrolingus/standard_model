@@ -150,6 +150,30 @@ header.site-header {
   color: var(--text-muted);
 }
 
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  transition: all var(--transition-fast);
+}
+
+.github-link:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-dark);
+}
+
+.github-icon {
+  display: block;
+}
+
 /* Search & Filters Toolbar */
 .toolbar-container {
   display: flex;
