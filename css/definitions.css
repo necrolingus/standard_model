@@ -1,0 +1,374 @@
+/**
+ * Conceptual Definitions & Terminology Section Styles
+ * Plain white, minimalist academic aesthetic, no neon, no emojis.
+ */
+
+.definitions-section {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 2rem 0;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-fast);
+}
+
+.definitions-section.is-collapsed {
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-secondary);
+}
+
+.definitions-section-header {
+  margin-bottom: 0.5rem;
+}
+
+.definitions-section.is-collapsed .definitions-section-header {
+  margin-bottom: 0;
+}
+
+.def-section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.def-section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.def-section-step-hint {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.def-toggle-btn {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.def-toggle-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-dark);
+}
+
+.def-section-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 0.35rem;
+}
+
+.definitions-section.is-collapsed .def-section-desc {
+  display: none;
+}
+
+/* Collapsible wrapper */
+.def-collapsible-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.definitions-section.is-collapsed .def-collapsible-content {
+  display: none;
+}
+
+/* Pills Bar */
+.def-pills-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.def-pill-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.def-pill-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-main);
+  border-color: var(--border-dark);
+}
+
+.def-pill-btn.active {
+  background: var(--text-main);
+  color: #ffffff;
+  border-color: var(--text-main);
+}
+
+.def-pill-btn.active .def-pill-num {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.def-pill-num {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  background: var(--bg-tertiary);
+  color: var(--text-dim);
+  padding: 0.05rem 0.35rem;
+  border-radius: 10px;
+  line-height: 1.2;
+}
+
+/* Selected Definition Card Content */
+.def-display-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.def-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+}
+
+.def-card-term-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.def-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.def-badge-scale {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-medium);
+}
+
+.def-badge-cat {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  background: #f1f5f9;
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
+}
+
+/* Definition Content Blocks */
+.def-block-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.def-block-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.def-summary-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Misconceptions Callout */
+.def-misconceptions-box {
+  background: #fcfcfc;
+  border: 1px solid var(--border-medium);
+  border-left: 4px solid var(--text-main);
+  border-radius: 4px;
+  padding: 0.875rem 1.125rem;
+}
+
+.def-misconceptions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+
+.def-misconception-item {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.def-misconception-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+.def-misconception-item strong {
+  color: var(--text-main);
+}
+
+/* Spin Spectrum Breakdown Table / Cards */
+.def-spin-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.def-spin-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.def-spin-val {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.25rem;
+}
+
+.def-spin-meaning {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.def-spin-examples {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  margin-top: auto;
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--border-light);
+}
+
+.def-spin-examples strong {
+  color: var(--text-main);
+}
+
+/* Relationships */
+.def-relationships-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+/* Discovery & History */
+.def-history-box {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border-medium);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.def-history-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.def-history-row strong {
+  color: var(--text-main);
+}
+
+/* Related particle jump pills */
+.def-jump-pills-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.def-jump-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-right: 0.25rem;
+}
+
+.def-jump-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.def-jump-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-dark);
+  color: var(--focus-ring);
+}

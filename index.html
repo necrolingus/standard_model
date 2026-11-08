@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive learning reference for the Standard Model of Particle Physics and Quantum Mechanics. Pure vanilla HTML, CSS, and JS with dual plain-English and rigorous physics explanations.">
+  <title>Standard Model & Quantum Physics Portal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/drawer.css">
+  <link rel="stylesheet" href="css/definitions.css">
+
+  <!-- KaTeX for High-Precision Mathematical Typography -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Main ES Module Application Script -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1 class="brand-title">Standard Model of Particle Physics</h1>
+          <p class="brand-subtitle">
+            An interactive reference portal for students learning quantum mechanics and particle physics. 
+            Click any component to inspect its composition, interacting forces, decay channels, and authoritative sources.
+          </p>
+        </div>
+        <div class="header-meta">
+          <span class="badge-version">PDG 2024 Reference Data</span>
+        </div>
+      </div>
+
+      <!-- Search & Filters Toolbar -->
+      <div class="toolbar-container">
+        <div class="search-bar-wrap">
+          <label for="searchInput" class="sr-only">Search particles, symbols, or properties</label>
+          <input 
+            type="search" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search by name, symbol (e.g. u, γ, p), quark composition (e.g. uud), or property..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear search query">[Clear]</button>
+        </div>
+
+        <nav class="filter-pills-row" id="filterPillsRow" aria-label="Filter particles by category">
+          <!-- Dynamic filter buttons populated by js/app.js -->
+        </nav>
+      </div>
+
+      <!-- Conceptual Callout for Students -->
+      <aside class="learning-callout" role="note">
+        <div class="learning-callout-title">Core Conceptual Distinction: Elementary vs. Composite</div>
+        <div class="learning-callout-body">
+          <strong>Fundamental Particles</strong> (Quarks, Leptons, and Bosons) are point-like and have no internal components. 
+          For example, a <strong>photon</strong> is an elementary gauge boson, <em>not made of quarks</em>. 
+          In contrast, <strong>Hadrons</strong> (such as protons and neutrons) are <strong>composite particles</strong> assembled from bound quarks held together by the strong force.
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- Main Grid Content -->
+  <main id="mainContent" class="main-content">
+    <div class="container">
+
+      <!-- Foundational Definitions & Terminology Section (Pedagogical Scale) -->
+      <section class="definitions-section" id="definitionsSection" aria-labelledby="defSectionTitle">
+        <div class="definitions-section-header">
+          <div class="def-section-title-row">
+            <h2 class="def-section-title" id="defSectionTitle">
+              <span>Foundational Definitions & Physics Terminology</span>
+            </h2>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="def-section-step-hint">Smallest scale upward</span>
+              <button 
+                type="button" 
+                class="def-toggle-btn" 
+                id="defToggleBtn" 
+                aria-expanded="true" 
+                aria-controls="defCollapsibleContent"
+              >
+                Hide Definitions [-]
+              </button>
+            </div>
+          </div>
+          <p class="def-section-desc">
+            Explore key concepts in plain English before diving into specific particles. Click any pill to inspect its 
+            meaning, common misconceptions, inter-relationships, and historical discovery.
+          </p>
+        </div>
+
+        <!-- Collapsible Content Wrapper -->
+        <div class="def-collapsible-content" id="defCollapsibleContent">
+          <!-- Ascending Concept Pills -->
+          <nav class="def-pills-bar" id="defPillsBar" aria-label="Conceptual terminology in ascending scale">
+            <!-- Dynamically populated by js/app.js -->
+          </nav>
+
+          <!-- Dynamic Definition Card -->
+          <div class="def-display-card" id="defDisplayCard" role="region" aria-live="polite">
+            <!-- Dynamically populated by js/ui.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Standard Model Canonical Matrix Section -->
+      <section class="section-block" id="smSectionBlock" aria-labelledby="smSectionTitle">
+        <div class="section-header">
+          <h2 class="section-title" id="smSectionTitle">Fundamental Particles of the Standard Model</h2>
+          <span class="section-desc">17 elementary fermions (matter) and bosons (force carriers & mass generation)</span>
+        </div>
+        <div class="scroll-hint">Scroll horizontally to view full matrix →</div>
+        
+        <div class="sm-matrix-wrapper">
+          <div class="sm-grid" id="smGridContainer">
+            <!-- Rendered by js/ui.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Composite Hadrons Section -->
+      <section class="section-block" id="hadronsSectionBlock" aria-labelledby="hadronsSectionTitle">
+        <div class="section-header">
+          <h2 class="section-title" id="hadronsSectionTitle">Common Composite Particles (Hadrons)</h2>
+          <span class="section-desc">Baryons (3 bound quarks) and Mesons (quark-antiquark pairs)</span>
+        </div>
+
+        <div class="hadrons-grid" id="hadronsGridContainer">
+          <!-- Rendered by js/ui.js -->
+        </div>
+      </section>
+
+      <!-- Empty State when filter yields 0 matches -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <h3 class="empty-state-title">No matching particles found</h3>
+        <p class="empty-state-desc">Try clearing your search query or selecting a different category filter.</p>
+        <button type="button" class="btn-reset-search" id="btnResetSearch">Reset Search & Filters</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Slide-Over Side Drawer for Detailed Component View -->
+  <div class="drawer-backdrop" id="drawerBackdrop" tabindex="-1"></div>
+  
+  <aside 
+    class="drawer-panel" 
+    id="drawerPanel" 
+    role="dialog" 
+    aria-modal="true" 
+    aria-hidden="true" 
+    aria-labelledby="drawerTitle"
+  >
+    <div class="drawer-header" id="drawerHeader">
+      <div class="drawer-header-left">
+        <div class="drawer-symbol-badge" id="drawerSymbol"></div>
+        <div class="drawer-title-group">
+          <h2 class="drawer-title" id="drawerTitle">Particle Details</h2>
+          <span class="drawer-category-pill" id="drawerCategory">Category</span>
+        </div>
+      </div>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close details panel">
+        Close [Esc]
+      </button>
+    </div>
+
+    <div class="drawer-body" id="drawerBody">
+      <!-- Injected dynamically by js/ui.js -->
+    </div>
+  </aside>
+
+  <!-- Site Footer with Sources & Attributions -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h4>About this Learning Portal</h4>
+        <p>
+          Designed for university students and enthusiasts of quantum mechanics and particle physics. 
+          Built entirely with modular vanilla HTML, CSS, and JavaScript with zero backend or server requirements.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Authoritative Scientific Sources</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://pdg.lbl.gov/" target="_blank" rel="noopener noreferrer">
+              Particle Data Group (PDG) — Review of Particle Physics
+            </a>
+          </li>
+          <li>
+            <a href="https://home.cern/science/physics/standard-model" target="_blank" rel="noopener noreferrer">
+              CERN — European Organization for Nuclear Research
+            </a>
+          </li>
+          <li>
+            <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html" target="_blank" rel="noopener noreferrer">
+              HyperPhysics — Department of Physics & Astronomy, Georgia State University
+            </a>
+          </li>
+          <li>
+            <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener noreferrer">
+              NIST Reference on Constants, Units, and Uncertainty (CODATA)
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Attribution & Open Knowledge</h4>
+        <p>
+          Particle masses, lifetimes, branching ratios, and quantum numbers are sourced from the 
+          <em>Review of Particle Physics (2024)</em> compiled by the Particle Data Group (R.L. Workman et al.).
+        </p>
+        <p>
+          Free to use, inspect, fork, or host.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

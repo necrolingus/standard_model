@@ -1,0 +1,317 @@
+/**
+ * Grid & Particle Card Layouts
+ * Standard Model Canonical 2D Matrix + Composite Hadrons + Fluid Filtered Views
+ * Plain white, minimalist aesthetic, no neon, no emojis.
+ */
+
+.section-block {
+  margin-bottom: 2.5rem;
+}
+
+.section-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+}
+
+.section-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Matrix Wrapper with horizontal scrolling for smaller screens */
+.sm-matrix-wrapper {
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll hint for mobile */
+.scroll-hint {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .scroll-hint {
+    display: block;
+  }
+}
+
+/* 
+ * Canonical Standard Model 2D Matrix
+ * Column 1: Row Labels (Families / Charges)
+ * Column 2: Generation I (Up, Down, Electron, Electron Neutrino)
+ * Column 3: Generation II (Charm, Strange, Muon, Muon Neutrino)
+ * Column 4: Generation III (Top, Bottom, Tau, Tau Neutrino)
+ * Column 5: Gauge Bosons (Gluon, Photon, Z Boson, W Boson)
+ * Column 6: Scalar Boson (Higgs Boson)
+ */
+.sm-grid.canonical-mode {
+  display: grid;
+  grid-template-columns: 110px repeat(5, minmax(170px, 1fr));
+  grid-template-rows: auto repeat(4, minmax(140px, auto));
+  gap: 0.75rem;
+  min-width: 980px;
+}
+
+/* Fluid Mode for Search or Filtered Subsets */
+.sm-grid.fluid-mode {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  min-width: 0;
+}
+
+/* Column Headers in Row 1 */
+.grid-col-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  padding: 0.35rem 0.5rem;
+  border-bottom: 2px solid var(--border-medium);
+  grid-row: 1;
+}
+
+.grid-col-header.header-rowlabels { grid-column: 1; text-align: right; border-bottom-color: transparent; }
+.grid-col-header.header-gen1 { grid-column: 2; }
+.grid-col-header.header-gen2 { grid-column: 3; }
+.grid-col-header.header-gen3 { grid-column: 4; }
+.grid-col-header.header-gauge { grid-column: 5; }
+.grid-col-header.header-scalar { grid-column: 6; }
+
+/* Row Headers in Column 1 */
+.grid-row-header {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  padding-right: 0.75rem;
+  border-right: 2px solid var(--border-light);
+  user-select: none;
+}
+
+.grid-row-header-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.grid-row-header-sub {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  margin-top: 0.15rem;
+}
+
+.grid-row-header.row-up-quarks { grid-row: 2; }
+.grid-row-header.row-down-quarks { grid-row: 3; }
+.grid-row-header.row-charged-leptons { grid-row: 4; }
+.grid-row-header.row-neutral-leptons { grid-row: 5; }
+
+/* Particle Card Component */
+.particle-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  box-shadow: var(--shadow-card);
+  user-select: none;
+}
+
+.particle-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.particle-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Category Semantic Accents (Subtle borders & badges only) */
+.particle-card.cat-quark {
+  border-top: 3px solid var(--quark-accent);
+}
+.particle-card.cat-lepton {
+  border-top: 3px solid var(--lepton-accent);
+}
+.particle-card.cat-gauge-boson {
+  border-top: 3px solid var(--boson-accent);
+}
+.particle-card.cat-scalar-boson {
+  border-top: 3px solid var(--higgs-accent);
+}
+.particle-card.cat-hadron-baryon,
+.particle-card.cat-hadron-meson {
+  border-top: 3px solid var(--hadron-accent);
+}
+
+/* Card Header */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.35rem;
+}
+
+.card-symbol {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-main);
+}
+
+.card-category-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cat-quark .card-category-badge {
+  background: var(--quark-bg);
+  color: var(--quark-accent);
+  border: 1px solid var(--quark-border);
+}
+.cat-lepton .card-category-badge {
+  background: var(--lepton-bg);
+  color: var(--lepton-accent);
+  border: 1px solid var(--lepton-border);
+}
+.cat-gauge-boson .card-category-badge {
+  background: var(--boson-bg);
+  color: var(--boson-accent);
+  border: 1px solid var(--boson-border);
+}
+.cat-scalar-boson .card-category-badge {
+  background: var(--higgs-bg);
+  color: var(--higgs-accent);
+  border: 1px solid var(--higgs-border);
+}
+.cat-hadron-baryon .card-category-badge,
+.cat-hadron-meson .card-category-badge {
+  background: var(--hadron-bg);
+  color: var(--hadron-accent);
+  border: 1px solid var(--hadron-border);
+}
+
+.card-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+/* Card Quantum Specs Mini-Table */
+.card-metrics {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.4rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.card-metric-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-metric-label {
+  color: var(--text-dim);
+}
+
+.card-metric-val {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.card-structure-hint {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--hadron-accent);
+  margin-top: 0.25rem;
+  background: var(--hadron-bg);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Common Composite Hadrons Grid */
+.hadrons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+/* Empty State / Search Not Found */
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  border: 1px dashed var(--border-medium);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 450px;
+  margin: 0 auto 1.25rem;
+}
+
+.btn-reset-search {
+  padding: 0.45rem 1rem;
+  background: var(--text-main);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
